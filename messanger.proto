@@ -1,4 +1,5 @@
 syntax="proto3";
+option go_package="./messangerpb";
 
 message Message {
     string uuid = 1;
@@ -16,5 +17,5 @@ message SendMessageResponse {
 }
 
 service MessangerService {
-    rpc SendMessage(SendMessageRequest) returns (SendMessageResponse) {};
+    rpc SendMessage(stream SendMessageRequest) returns (stream SendMessageResponse) {};
 }
